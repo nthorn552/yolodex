@@ -4,6 +4,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 
+import { Button } from "@material-ui/core";
+
 const App = () => (
   <CssBaseline>
     <Container maxWidth="lg">
