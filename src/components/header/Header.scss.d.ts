@@ -1,7 +1,5 @@
-export interface HeaderSass {
-    header: string;
-  }
-  
-  export const styles: HeaderSass;
-  
-  export default styles;
+export const styles: {
+  header: string;
+};
+
+export default styles;
