@@ -8,11 +8,7 @@ interface TabContainerProps {
   children?: React.ReactNode;
 }
 function TabContainer(props: TabContainerProps) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
+  return <Typography component="div">{props.children}</Typography>;
 }
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired
@@ -23,6 +19,9 @@ const useStyles = makeStyles((theme?: Theme) =>
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.primary.main
+    },
+    headerTitle: {
+      paddingRight: theme.spacing(3)
     }
   })
 );
@@ -39,15 +38,17 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar color="primary">
         <Toolbar>
-          <Typography variant="h6" color="inherit">
+          <Typography
+            variant="h6"
+            color="inherit"
+            className={classes.headerTitle}
+          >
             The Cauldron
           </Typography>
-          <Container maxWidth="sm">
-            <Tabs value={activeTab} onChange={handleChange} centered>
-              <Tab label="Device" />
-              <Tab label="Billing" />
-            </Tabs>
-          </Container>
+          <Tabs value={activeTab} onChange={handleChange}>
+            <Tab label="Device" />
+            <Tab label="Billing" />
+          </Tabs>
         </Toolbar>
       </AppBar>
     </div>
