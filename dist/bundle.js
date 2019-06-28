@@ -1298,7 +1298,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var pars
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"div {\\n  background-color: #0F0;\\n  color: #333; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/header/Header.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"div {\\n  background-color: #ddb;\\n  color: #333; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/header/Header.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
 
 /***/ }),
 
@@ -1782,7 +1782,7 @@ eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __importStar(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n__webpack_require__(/*! ./Header.scss */ \"./src/components/header/Header.scss\");\nconst Header = () => {\n    return React.createElement(\"div\", { className: \"header-component\" }, \"Header Component\");\n};\nexports.default = Header;\n\n\n//# sourceURL=webpack:///./src/components/header/Header.tsx?");
+eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __importStar(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nconst Header_scss_1 = __importDefault(__webpack_require__(/*! ./Header.scss */ \"./src/components/header/Header.scss\"));\nconst Header = () => {\n    return React.createElement(\"div\", { className: Header_scss_1.default.header }, \"Header Component\");\n};\nexports.default = Header;\n\n\n//# sourceURL=webpack:///./src/components/header/Header.tsx?");
 
 /***/ }),
 

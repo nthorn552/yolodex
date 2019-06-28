@@ -1,7 +1,5 @@
 export interface HeaderSass {
-    primaryColor: string;
-    accentColor: string;
-    textColor: string;
+    header: string;
   }
   
   export const styles: HeaderSass;
