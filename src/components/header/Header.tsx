@@ -1,8 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { MemoryRouter as Router } from "react-router";
+import { Link, LinkProps } from "react-router-dom";
+
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { AppBar, Container, Tabs, Tab, Toolbar } from "@material-ui/core";
+import {
+  AppBar,
+  Container,
+  Tabs,
+  Tab,
+  Toolbar,
+  ButtonBase
+} from "@material-ui/core";
 
 interface TabContainerProps {
   children?: React.ReactNode;
@@ -26,7 +36,11 @@ const useStyles = makeStyles((theme?: Theme) =>
   })
 );
 
-export default function Header() {
+const LinkRoute = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <Link innerRef={ref as any} {...props} />
+);
+
+const Header = () => {
   const classes = useStyles({});
   const [activeTab, updateTab] = React.useState(0);
 
@@ -45,12 +59,20 @@ export default function Header() {
           >
             The Cauldron
           </Typography>
-          <Tabs value={activeTab} onChange={handleChange}>
-            <Tab label="Device" />
-            <Tab label="Billing" />
-          </Tabs>
+          <Router>
+            <Tabs value={activeTab} onChange={handleChange}>
+              <ButtonBase component={LinkRoute} to="/shmac">
+                <Tab label="SHMAC" />
+              </ButtonBase>
+              <ButtonBase component={LinkRoute} to="/billing">
+                <Tab label="Billing" />
+              </ButtonBase>
+            </Tabs>
+          </Router>
         </Toolbar>
       </AppBar>
     </div>
   );
-}
+};
+
+export default Header;
