@@ -3,5 +3,5 @@ export interface AddDevicePayload {
 }
 
 export function addDevice(payload: AddDevicePayload) {
-  return { type: "ADD_ARTICLE", payload };
+  return { type: "ADD_DEVICE", payload };
 }
