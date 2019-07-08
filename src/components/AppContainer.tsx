@@ -1,22 +1,23 @@
 import * as React from "react";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import Shmac from "../pages/Shmac";
 
 import { Container, Theme, makeStyles, createStyles } from "@material-ui/core";
 
-const AppContainer = () => {
+const useStyles = makeStyles((theme?: Theme) =>
+  createStyles({
+    headerSpacer: {
+      ...theme.mixins.toolbar
+    },
+    mainContainer: {}
+  })
+);
+
+const AppContainer: React.SFC = ({ children }) => {
+  const classes = useStyles({});
   return (
-    <BrowserRouter>
-      <Container>
-        <Switch>
-          <Route path="/shmac" component={Shmac} />
-          <Route path="/billing" render={() => <h3>Billing Page</h3>} />
-        </Switch>
-      </Container>
-    </BrowserRouter>
+    <Container maxWidth="lg">
+      <div className={classes.headerSpacer} />
+      {children}
+    </Container>
   );
 };
 

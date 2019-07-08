@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -23,22 +23,17 @@ const App = () => {
     <CssBaseline>
       <MuiThemeProvider theme={theme}>
         <Provider store={store}>
-          <BrowserRouter>
+          <Router>
             <Typography component="div">
               <Header />
-              {/* <div /> */}
-              <AppContainer />
-              {/* <Switch>
+              <AppContainer>
+                <Switch>
                   <Route path="/shmac" component={Shmac} />
-                  <Route
-                    path="/billing"
-                    render={() => (
-                      <h3>Billing Page</h3>
-                    )}
-                  />
-                </Switch> */}
+                  <Route path="/billing" render={() => <h3>Billing Page</h3>} />
+                </Switch>
+              </AppContainer>
             </Typography>
-          </BrowserRouter>
+          </Router>
         </Provider>
       </MuiThemeProvider>
     </CssBaseline>

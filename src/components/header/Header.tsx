@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { AppBar, Tabs, Tab, Toolbar } from "@material-ui/core";
+import { AppBar, Container, Tabs, Tab, Toolbar } from "@material-ui/core";
 
 import tabList from "./tabList";
 
@@ -29,20 +29,24 @@ const Header = () => {
   return (
     <div className={classes.root}>
       <AppBar color="primary">
-        <Toolbar>
-          <Typography
-            variant="h6"
-            color="inherit"
-            className={classes.headerTitle}
-          >
-            The Cauldron
-          </Typography>
-          <Tabs value={activeTab} onChange={handleChange}>
-            {tabList.map(tab => {
-              return <Tab label={tab.label} component={Link} to={tab.route} />;
-            })}
-          </Tabs>
-        </Toolbar>
+        <Container maxWidth="lg">
+          <Toolbar>
+            <Typography
+              variant="h6"
+              color="inherit"
+              className={classes.headerTitle}
+            >
+              The Cauldron
+            </Typography>
+            <Tabs value={activeTab} onChange={handleChange}>
+              {tabList.map(tab => {
+                return (
+                  <Tab label={tab.label} component={Link} to={tab.route} />
+                );
+              })}
+            </Tabs>
+          </Toolbar>
+        </Container>
       </AppBar>
     </div>
   );
