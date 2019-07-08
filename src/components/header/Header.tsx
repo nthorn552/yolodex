@@ -39,9 +39,15 @@ const Header = () => {
               The Cauldron
             </Typography>
             <Tabs value={activeTab} onChange={handleChange}>
-              {tabList.map(tab => {
+              {tabList.map(({ label, route }, tabNumber) => {
                 return (
-                  <Tab label={tab.label} component={Link} to={tab.route} />
+                  <Tab
+                    label={label}
+                    component={Link}
+                    to={route}
+                    key={tabNumber}
+                    disableRipple
+                  />
                 );
               })}
             </Tabs>
