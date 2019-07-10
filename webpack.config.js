@@ -21,13 +21,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
-      },
-      {
-        test:/\.scss$/,
-        use:['style-loader','css-loader', 'sass-loader']
       }
     ]
   },
+  devtool: "source-map",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 3000,

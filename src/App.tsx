@@ -1,24 +1,43 @@
 import * as React from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 
-import './App.css';
+import theme from "./MuiThemeProvider";
 import Header from "./components/header/Header";
+import Shmac from "./pages/Shmac";
 
-const App = () => (
-  <CssBaseline>
-    <Container maxWidth="lg">
-      <Typography
-        component="div"
-        style={{ backgroundColor: "#164780", height: "100vh" }}
-      >
-        <Header></Header>
-        Beginning of App!
-      </Typography>
-    </Container>
-  </CssBaseline>
-);
+import rootReducer from "./reducers";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import { StylesContext } from "@material-ui/styles/StylesProvider";
+
+import AppContainer from "./components/AppContainer";
+
+const store = createStore(rootReducer);
+
+const App = () => {
+  return (
+    <CssBaseline>
+      <MuiThemeProvider theme={theme}>
+        <Provider store={store}>
+          <Router>
+            <Typography component="div">
+              <Header />
+              <AppContainer>
+                <Switch>
+                  <Route path="/shmac" component={Shmac} />
+                  <Route path="/billing" render={() => <h3>Billing Page</h3>} />
+                </Switch>
+              </AppContainer>
+            </Typography>
+          </Router>
+        </Provider>
+      </MuiThemeProvider>
+    </CssBaseline>
+  );
+};
 
 export default App;
