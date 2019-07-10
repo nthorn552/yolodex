@@ -1,28 +1,23 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import { AppBar, Container, Tabs, Tab, Toolbar } from "@material-ui/core";
 
 import tabList from "./tabList";
+import useStyles from './styles';
 
-const useStyles = makeStyles((theme?: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.primary.main
-    },
-    headerTitle: {
-      paddingRight: theme.spacing(3)
-    }
-  })
-);
-
-const Header = () => {
+const Header = ({ location }: RouteComponentProps) => {
   const classes = useStyles({});
-  const [activeTab, updateTab] = React.useState();
+  const [activeTab, updateTab] = React.useState(getActiveTab(location));
 
-  function handleChange(event: React.ChangeEvent<{}>, newValue: string) {
+  function getActiveTab(location: RouteComponentProps["location"]): string | null {
+    const activeTab = tabList.find((tab) => {
+      return location.pathname.startsWith(tab.route);
+    });
+    return activeTab ? activeTab.route : null;
+  }
+
+  function handleChange(event: React.ChangeEvent, newValue: string) {
     updateTab(newValue);
   }
 
@@ -39,13 +34,14 @@ const Header = () => {
               The Cauldron
             </Typography>
             <Tabs value={activeTab} onChange={handleChange}>
-              {tabList.map(({ label, route }, tabNumber) => {
+              {tabList.map(({ label, route }) => {
                 return (
                   <Tab
                     label={label}
                     component={Link}
                     to={route}
-                    key={tabNumber}
+                    key={route}
+                    value={route}
                     disableRipple
                   />
                 );

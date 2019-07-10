@@ -5,15 +5,15 @@ export type Tab = {
 
 const tabList: Tab[] = [
   {
-    route: "dashboard",
+    route: "/dashboard",
     label: "Dashboard"
   },
   {
-    route: "shmac",
+    route: "/shmac",
     label: "SHMAC"
   },
   {
-    route: "billing",
+    route: "/billing",
     label: "Billing"
   }
 ];
