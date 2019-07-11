@@ -1,13 +1,9 @@
-var express = require("express");
-var path = require("path");
-var app = express();
-
-import apiRouter from "server/routes/index";
+const express = require("express");
+const path = require("path");
+const app = express();
 
 // serve our static stuff
 app.use(express.static(path.join(__dirname, "dist")));
-
-app.all("/api", apiRouter);
 
 // send all requests to index.html so browserHistory in React Router works
 app.get("*", function(req, res) {

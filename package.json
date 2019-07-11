@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",
+    "start:server": "node server.js",
     "start:prod": "node server.js"
   },
   "author": "",
