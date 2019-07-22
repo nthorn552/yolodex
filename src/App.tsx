@@ -2,6 +2,7 @@ import * as React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -16,7 +17,7 @@ import { StylesContext } from "@material-ui/styles/StylesProvider";
 
 import AppContainer from "./components/AppContainer";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 const App = () => {
   return (
