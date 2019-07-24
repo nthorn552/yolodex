@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import devices from "./devices";
+import shmac from "./shmac";
 
 const rootReducer = combineReducers({
-  devices
+  shmac
 });
 
 export default rootReducer;
