@@ -1,26 +1,25 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { Device } from "../reducers/devices/types";
+import { Device } from "../reducers/shmac/types";
 
-import { makeStyles, Theme, createStyles, WithStyles, withStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  Theme,
+  createStyles,
+  WithStyles,
+  withStyles
+} from "@material-ui/core/styles";
 import { Paper, Container } from "@material-ui/core";
 
-const styles = ({ spacing }: Theme) => createStyles({
-  pageWrapper: {
-    paddingTop: spacing(2)
-  }
-});
-
-type State = {
-  targetDevice: Device;
-};
-
-const initialState: State = {
-  targetDevice: null
-};
+const styles = ({ spacing }: Theme) =>
+  createStyles({
+    pageWrapper: {
+      paddingTop: spacing(2)
+    }
+  });
 
 class ShmacPage extends Component<WithStyles<typeof styles>> {
-
   render = () => {
     return (
       <Container className={this.props.classes.pageWrapper}>
@@ -30,4 +29,4 @@ class ShmacPage extends Component<WithStyles<typeof styles>> {
   };
 }
 
-export default withStyles(styles)(ShmacPage);
+export default connect()(withStyles(styles)(ShmacPage));
