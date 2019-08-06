@@ -15,6 +15,11 @@ module.exports = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
+        use: ["awesome-typescript-loader"]
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: ["babel-loader"]
       }
     ]
