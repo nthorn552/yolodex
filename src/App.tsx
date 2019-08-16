@@ -1,8 +1,6 @@
 import * as React from "react";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -10,13 +8,18 @@ import Typography from "@material-ui/core/Typography";
 import theme from "./MuiThemeProvider";
 import Header from "./components/header/Header";
 
-import rootReducer from "./reducers";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { StylesContext } from "@material-ui/styles/StylesProvider";
 
-import AppContainer from "./components/AppContainer";
+import store from './store';
+import { getCards } from './store/cards/actions';
 
-const store = createStore(rootReducer, composeWithDevTools());
+import AppContainer from "./components/AppContainer";
+import { Button } from "@material-ui/core";
+
+function testHandler(event: React.MouseEvent): void {
+  store.dispatch(getCards());
+}
 
 const App = () => {
   return (
@@ -28,7 +31,7 @@ const App = () => {
               <Header />
               <AppContainer>
                 Dashboard
-                <FriendList />
+                <Button onClick={testHandler}>test</Button>
               </AppContainer>
             </Typography>
           </Router>
