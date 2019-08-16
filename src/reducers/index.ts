@@ -1,9 +1,5 @@
 import { combineReducers } from "redux";
 
-import shmac from "./shmac";
-
-const rootReducer = combineReducers({
-  shmac
-});
+const rootReducer = combineReducers({});
 
 export default rootReducer;

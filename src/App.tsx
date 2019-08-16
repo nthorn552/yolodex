@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 
 import theme from "./MuiThemeProvider";
 import Header from "./components/header/Header";
-import Shmac from "./pages/Shmac";
 
 import rootReducer from "./reducers";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -28,10 +27,8 @@ const App = () => {
             <Typography component="div">
               <Header />
               <AppContainer>
-                <Switch>
-                  <Route path="/shmac" component={Shmac} />
-                  <Route path="/billing" render={() => <h3>Billing Page</h3>} />
-                </Switch>
+                Dashboard
+                <FriendList />
               </AppContainer>
             </Typography>
           </Router>
