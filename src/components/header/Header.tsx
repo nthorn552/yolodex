@@ -31,7 +31,7 @@ const Header = ({ location }: RouteComponentProps) => {
               color="inherit"
               className={classes.headerTitle}
             >
-              The Cauldron
+              Yolodex
             </Typography>
             <Tabs value={activeTab} onChange={handleChange}>
               {tabList.map(({ label, route }) => {

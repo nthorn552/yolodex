@@ -1,8 +1,6 @@
 import * as React from "react";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -10,13 +8,12 @@ import Typography from "@material-ui/core/Typography";
 import theme from "./MuiThemeProvider";
 import Header from "./components/header/Header";
 
-import rootReducer from "./reducers";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { StylesContext } from "@material-ui/styles/StylesProvider";
 
+import store from './store';
+
+import Contacts from "./pages/contacts/Contacts";
 import AppContainer from "./components/AppContainer";
-
-const store = createStore(rootReducer, composeWithDevTools());
 
 const App = () => {
   return (
@@ -27,14 +24,13 @@ const App = () => {
             <Typography component="div">
               <Header />
               <AppContainer>
-                Dashboard
-                <FriendList />
+                <Contacts />
               </AppContainer>
             </Typography>
           </Router>
         </Provider>
       </MuiThemeProvider>
-    </CssBaseline>
+    </CssBaseline >
   );
 };
 
