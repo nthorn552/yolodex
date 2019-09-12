@@ -9,17 +9,11 @@ import theme from "./MuiThemeProvider";
 import Header from "./components/header/Header";
 
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { StylesContext } from "@material-ui/styles/StylesProvider";
 
 import store from './store';
-import { getCards } from './store/cards/actions';
 
+import Contacts from "./pages/contacts/Contacts";
 import AppContainer from "./components/AppContainer";
-import { Button } from "@material-ui/core";
-
-function testHandler(event: React.MouseEvent): void {
-  store.dispatch(getCards());
-}
 
 const App = () => {
   return (
@@ -30,14 +24,13 @@ const App = () => {
             <Typography component="div">
               <Header />
               <AppContainer>
-                Dashboard
-                <Button onClick={testHandler}>test</Button>
+                <Contacts />
               </AppContainer>
             </Typography>
           </Router>
         </Provider>
       </MuiThemeProvider>
-    </CssBaseline>
+    </CssBaseline >
   );
 };
 
